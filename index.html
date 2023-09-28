@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Groceries</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
+    
 </head>
 <body>
     <header class="navigation">
         <div class="page-title">E-Groceries</div>
         <div class="nav">
-            <a href="/" class="nav-item">Home</a>
-            <a href="/" class="nav-item">Call Us</a>
-            <a href="/" class="nav-item">Our Package</a>
+            <a href="index.html#content-left" class="nav-item">Home</a>
+            <a href="index.html#content-right" class="nav-item">Call Us</a>
+            <a href="index.html#our-product" class="nav-item">Our Package</a>
         </div>
     </header>
     <main>
-        <div class="content-title" id="title">
+        <div class="content-title" id="content-title">
             <div>
-                <h1>Top Rated E-Groceries Shop in Indonesia</h1>
+                <h1 class="title">Top Rated E-Groceries Shop in Indonesia</h1>
             </div>
             <div>
                 <span>Everyday with best ingredients</span>
@@ -28,34 +28,116 @@
         <div id="content" class="content">
             <div id="content-left" class="content-left">
                 <div id="content-image" class="content-image">
-                    <img src="https://placehold.co/400x400?font=roboto" alt="slider image">
-                    <span>Fresh Everyday</span>
+                    <img class="slide-image" src="asset/shop-3.jpg" alt="slider image">
+                    <div class="caption-image">
+                        <p class="caption">&Prime;Every day the fruit and vegetables here are fresh. Even the bread is still freshly made.&Prime;</p>
+                        <div class="profile">
+                            <div class="profile-avatar">
+                                <img class="avatar" src="https://i.pravatar.cc/50?img=20" alt="avatar">
+                            </div>
+                            <div class="profile-info">
+                                <p calss="user-name"><b>Erun Young</b><br><span>Librarian, 21</span></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div id="content-image" class="content-image">
+                    <img class="slide-image" src="asset/shop-2.jpg" alt="slider image">
+                    <div class="caption-image">
+                        <p class="caption">&Prime;A great supermarket. All vegetables and various types of oil and spices are available from within the country and abroad.&Prime;</p>
+                        <div class="profile">
+                            <div class="profile-avatar">
+                                <img class="avatar" src="https://i.pravatar.cc/50?img=24" alt="avatar">
+                            </div>
+                            <div class="profile-info">
+                                <p calss="user-name"><b>Anna Harvey</b><br><span>Housewife, 28</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content-image" class="content-image">
+                    <img class="slide-image" src="asset/shop-1.jpg" alt="slider image">
+                    <div class="caption-image">
+                        <p class="caption">&Prime;Supermarket that provides a large selection of vegetables, fruit and other cooking needs. It doesn't take time to come to the shop. You only need to select from the application and the goods will arrive at your doorstep. Most importantly, fast and safe delivery.&Prime;</p>
+                        <div class="profile">
+                            <div class="profile-avatar">
+                                <img class="avatar" src="https://i.pravatar.cc/50?img=33" alt="avatar">
+                            </div>
+                            <div class="profile-info">
+                                <p calss="user-name"><b>Zhong Lee</b><br><span>Businessman, 33</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div id="content-image" class="content-image">
+                    <img class="slide-image active" src="asset/1.jpg" alt="slider image">
+                    <img class="slide-image" src="asset/2.jpg" alt="slider image">
+                    <img class="slide-image" src="asset/3.jpg" alt="slider image">
+                </div> -->
+                <!-- <button onclick="plusDivs(-1)" hidden>Prev</button>
+                <button onclick="plusDivs(1)" hidden>Next</button> -->
+                <!-- <button id="next-btn" onclick="nextSlide()">Next</button> -->
             </div>
             <div id="content-right" class="content-right">
-                <form action="" method="post" class="content-form">
-                    <label for="your-name">Your Name</label>
-                    <input type="text" name="your-name" id="" placeholder="First and Last Name">
+                <form name="contact-form" class="content-form" onsubmit="return validateForm()">
+                    <h3><b>Contact Us</b></h3>
+                    <p>Sales will contact you within 1x24 hours after we receive the data.</p>
+                    
+                    <label for="your-name"><b>Your Name</b></label>
+                    <input type="text" name="your-name" id="your-name" placeholder="First and Last Name">
+                    <P id="name-error" class="error-message"></P>
 
-                    <label for="email">Email Address:</label>
-                    <input type="email" name="email" id="" placeholder="example@email.com">
+                    <label for="email"><b>Email Address</b></label>
+                    <input type="email" name="email" id="email" placeholder="example@email.com">
+                    <P id="email-error" class="error-message" ></P>
 
-                    <label for="interest">What are you Interested in?</label>
-                    <select name="interest" id="">
-                        <option value="">Sport</option>
-                        <option value="">Reading</option>
+                    <label for="phone-number"><b>Phone Number</b></label>
+                    <input type="tel" name="phone" id="phone" placeholder="081234567890">
+                    <P id="phone-error" class="error-message" ></P>
+
+                    <label for="message"><b>Message</b></label>
+                    <textarea name="message" id="message" placeholder="Enter your message" rows="5"></textarea>
+                    <P id="message-error" class="error-message" ></P>
+
+                    <!-- <label for="interest"><b>What are you Interested in?</b></label>
+                    <select name="interest" id="interest">
+                        <option value="" selected>Select option</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Cooking">Cooking</option>
+                        <option value="Music">Music</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Art">Art</option>
                     </select>
+                    <P id="interest-error" class="error-message" ></P> -->
 
-                    <button id="button" class="button" type="submit">SEND</button>
+                    <button id="submit" name="submit" class="button" type="submit">SEND</button>
                 </form>
             </div>
         </div>
-    </main>
-    <div id="our-product">
-        <div class="circle">
-            3
+        <div class="our-offer">
+            <div>
+                <h2>TODAY'S OFFER</h2>
+            </div>
+            <div class="offer">
+                <div class="circle">1</div>
+                <p class="offer-detail">Using Credit Card Bank xxx get discount 10% every monday.</p>
+            </div>
+            <div class="offer">
+                <div class="circle">2</div>
+                <p class="offer-detail">Buy 1 Get 1 Detergen with minimum purchase of IDR 250.000. Until 14 Oktober 2023.</p>
+            </div>
+            <div class="offer">
+                <div class="circle">3</div>
+                <p class="offer-detail">Double your poin every Friday to get more discount.</p>
+            </div>
         </div>
+    </main>
+    <div id="our-product" name="our-product">
+        
     </div>
     <footer></footer>
 </body>
+<script src="js/script.js"></script>
 </html>
